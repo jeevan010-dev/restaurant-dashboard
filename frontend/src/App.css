@@ -1,0 +1,131 @@
+/* Layout */
+.app {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  width: 100vw;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 300px;
+  background: linear-gradient(180deg, #4facfe, #00f2fe);
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+  color: #fff;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.filter-group input {
+  margin: 5px 0;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+/* Search box */
+.search-box {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* Restaurants list */
+.restaurant-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.restaurant-item {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: all 0.2s;
+}
+
+.restaurant-item:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.restaurant-item.active {
+  background: #ff6b6b;
+  color: white;
+  font-weight: bold;
+}
+
+/* Top list */
+.top-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.top-list li {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Dashboard */
+.dashboard {
+  flex: 1;
+  padding: 30px;
+  background: #f3f6fa;
+}
+
+.dashboard h1 {
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Chart cards */
+.chart-block {
+  background: white;
+  border: none;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.chart-block:hover {
+  transform: translateY(-3px);
+}
+
+.chart-block h3 {
+  margin-bottom: 15px;
+  color: #007bff;
+}
+
+/* Empty state */
+.empty {
+  font-size: 16px;
+  color: #555;
+  padding: 40px;
+  background: #fff3cd;
+  border-radius: 10px;
+  border: 1px solid #ffeeba;
+}
