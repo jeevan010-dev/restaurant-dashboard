@@ -1,8 +1,6 @@
 <?php
-// backend/api/top_restaurants.php
 require_once __DIR__ . '/../helpers.php';
 
-// GET params: start, end, min_amount, max_amount, min_hour, max_hour, n
 $params = [
     'start' => $_GET['start'] ?? '',
     'end' => $_GET['end'] ?? '',
@@ -26,7 +24,6 @@ foreach ($orders as $o) {
 
 $result = [];
 foreach ($revenueByRestaurant as $rid => $rev) {
-    // try find restaurant info
     $rest = array_values(array_filter($restaurants, fn($r) => (string)$r['id'] === (string)$rid));
     $info = $rest ? $rest[0] : ['id' => $rid, 'name' => "Unknown #$rid", 'cuisine' => 'Unknown', 'location' => ''];
     $result[] = [
@@ -38,7 +35,6 @@ foreach ($revenueByRestaurant as $rid => $rev) {
     ];
 }
 
-// sort and slice
 usort($result, fn($a,$b) => $b['revenue'] <=> $a['revenue']);
 $result = array_slice($result, 0, $n);
 

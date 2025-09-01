@@ -1,8 +1,6 @@
 <?php
-// backend/api/analytics.php
 require_once __DIR__ . '/../helpers.php';
 
-// restaurant_id required
 if (empty($_GET['restaurant_id'])) {
     send_json(['error' => 'restaurant_id required'], 400);
 }
@@ -19,7 +17,6 @@ $params = [
 
 $orders = apply_filters(load_orders(), $params);
 
-// aggregate per day
 $days = [];
 foreach ($orders as $o) {
     $dt = new DateTimeImmutable($o['order_time']);
@@ -47,7 +44,6 @@ foreach ($days as $d => $v) {
     ];
 }
 
-// sort ascending by date (so charts are ordered)
 usort($res, function($a, $b) { return strcmp($a['date'], $b['date']); });
 
 send_json(['data' => $res]);

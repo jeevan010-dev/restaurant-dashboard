@@ -1,8 +1,6 @@
 <?php
-// backend/api/restaurants.php
 require_once __DIR__ . '/../helpers.php';
 
-// GET params: q (search), sort (name|location|cuisine), order (asc|desc), page, per_page
 $q = $_GET['q'] ?? '';
 $sort = $_GET['sort'] ?? 'name';
 $order = strtolower($_GET['order'] ?? 'asc') === 'desc' ? 'desc' : 'asc';
@@ -22,7 +20,6 @@ if ($q !== '') {
     }));
 }
 
-// sort
 $allowedSort = ['name', 'location', 'cuisine'];
 if (!in_array($sort, $allowedSort)) $sort = 'name';
 usort($all, function($a, $b) use ($sort, $order) {
@@ -32,7 +29,6 @@ usort($all, function($a, $b) use ($sort, $order) {
     return ($va < $vb ? -1 : 1) * ($order === 'asc' ? 1 : -1);
 });
 
-// pagination
 $total = count($all);
 $offset = ($page - 1) * $per_page;
 $items = array_slice($all, $offset, $per_page);

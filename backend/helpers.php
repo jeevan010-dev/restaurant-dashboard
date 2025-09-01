@@ -1,7 +1,4 @@
 <?php
-// backend/helpers.php
-
-// Safe JSON loader helpers and filter utility
 
 function load_orders(): array {
     $path = __DIR__ . '/../data/orders.json';
@@ -28,12 +25,6 @@ function send_json($payload, $status = 200) {
     exit;
 }
 
-/**
- * apply_filters(array $orders, array $params)
- * Supported GET params:
- *   restaurant_id, start (YYYY-MM-DD), end (YYYY-MM-DD),
- *   min_amount, max_amount, min_hour, max_hour
- */
 function apply_filters(array $orders, array $params): array {
     return array_values(array_filter($orders, function($o) use ($params) {
         // validate fields exist

@@ -25,7 +25,6 @@ ChartJS.register(
   Legend
 );
 
-// Change this to match your backend
 const API = "http://localhost:8000/api";
 
 export default function App() {
@@ -43,14 +42,12 @@ export default function App() {
   });
   const [search, setSearch] = useState("");
 
-  // fetch restaurants
   useEffect(() => {
     axios
       .get(`${API}/restaurants.php`, { params: { q: search } })
       .then((r) => setRestaurants(r.data.data));
   }, [search]);
 
-  // fetch analytics for selected restaurant
   useEffect(() => {
     if (selected) {
       axios
@@ -61,7 +58,6 @@ export default function App() {
     }
   }, [selected, filters]);
 
-  // fetch top restaurants
   useEffect(() => {
     axios
       .get(`${API}/top_restaurants.php`, { params: filters })
@@ -70,7 +66,6 @@ export default function App() {
 
   return (
     <div className="app">
-      {/* Sidebar */}
       <aside className="sidebar">
         <h2>Filters</h2>
         <div className="filter-group">
